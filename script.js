@@ -1,8 +1,11 @@
-//your code here!
-
 // Function to add list items
 function addListItems(count) {
-    const ul = document.getElementById('your-list-id'); // Replace with your actual list ID
+    const ul = document.getElementById('infi-list'); // Ensure this ID matches your HTML
+    if (!ul) {
+        console.error("List not found!");
+        return;
+    }
+    
     for (let i = 0; i < count; i++) {
         const li = document.createElement('li');
         li.textContent = `Item ${ul.children.length + 1}`; // Dynamic item numbering
@@ -16,7 +19,7 @@ addListItems(10);
 // Scroll event listener
 window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY + window.innerHeight;
-    const listBottom = document.getElementById('your-list-id').offsetTop + document.getElementById('your-list-id').offsetHeight;
+    const listBottom = ul.offsetTop + ul.offsetHeight;
 
     // Check if scrolled to the bottom of the list
     if (scrollPosition >= listBottom) {
